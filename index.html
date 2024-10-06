@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waihura Dairy Farm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/dairy-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <h1 class="logo-text">Waihura Dairy Farm</h1>
+    </div>
+    <nav class="header-nav">
+      <ol class="header-nav-list">
+        <li class="nav-list-items">
+          <a href="#home" class="nav-list-link">home</a>
+        </li>
+
+        <li class="nav-list-items"></li>
+        <a href="#products" class="nav-list-link">Products</a>
+        </li>
+        <li class="nav-list-items"></li>
+        <a href="#calves" class="nav-list-link">Calves</a>
+        </li>
+        <li class="nav-list-items"></li>
+        <a href="#about" class="nav-list-link">about us</a>
+        </li>
+        <li class="nav-list-items"></li>
+        <a href="#contact-us" class="nav-list-link">contact us</a>
+        </li>
+      </ol>
+    </nav>
+  </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-title">
+            <h1 class="hero-title-text">Welcome to Waihura Dairy Farm</h1>
+            <p class="hero-title-subtext">Fresh, Quality Dairy Products Straight from Our Farm</p>
+            <button class="hero-title-btn">Explore Products</button>
+        </div>
+    </section>
+
+ <!-- Products Section -->
+<div class="products" id="products">
+  <div class="title">
+    <h3 class="products-title">Our Products</h3>
+    <p class="products-subtitle">Farm-fresh and organic dairy products</p>
+  </div>
+
+  <div class="product-card">
+    <img src="freshmilk.jpg" alt="Fresh Milk" class="product-image">
+    <h4 class="product-name">Fresh Milk</h4>
+    <p class="product-description">Rich and creamy fresh milk sourced from our happy cows.</p>
+    <h5 class="product-price">$3.00 / Liter</h5>
+    <button class="order-button" onclick="openOrderForm('Fresh Milk', 3.00)">Order Now</button>
+  </div>
+
+  <div class="product-card">
+    <img src="yogurt.jpg" alt="Yogurt" class="product-image">
+    <h4 class="product-name">Yogurt</h4>
+    <p class="product-description">Delicious and healthy yogurt, perfect for breakfast or snacks.</p>
+    <h5 class="product-price">$1.50 / 500g</h5>
+    <button class="order-button" onclick="openOrderForm('Yogurt', 1.50)">Order Now</button>
+  </div>
+
+  <div class="product-card">
+    <img src="cheese.jpg" alt="Cheese" class="product-image">
+    <h4 class="product-name">Cheese</h4>
+    <p class="product-description">Creamy and flavorful cheese made from the finest ingredients.</p>
+    <h5 class="product-price">$5.00 / 200g</h5>
+    <button class="order-button" onclick="openOrderForm('Cheese', 5.00)">Order Now</button>
+  </div>
+</div>
+
+<!-- Order Form Modal -->
+<div id="orderFormModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeOrderForm()">&times;</span>
+    <h2>Order Form</h2>
+    <form id="orderForm">
+      <label for="product-name">Product:</label>
+      <input type="text" id="product-name" name="product" readonly>
+
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" readonly>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function openOrderForm(productName, price) {
+  document.getElementById('product-name').value = productName;
+  document.getElementById('price').value = "$" + price.toFixed(2);
+  document.getElementById('orderFormModal').style.display = "block";
+}
+
+// Close the order form modal
+function closeOrderForm() {
+  document.getElementById('orderFormModal').style.display = "none";
+}
+
+// Submit form (you can later implement this to send data to a server)
+document.getElementById('orderForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent the default form submission
+  
+  alert("Your order has been submitted!"); // Placeholder for actual submission logic
+
+  // Clear form fields
+  this.reset(); // Reset the form fields to their default values
+  closeOrderForm(); // Close the modal
+});
+</script>
+
+
+<!-- Calves for Sale Section -->
+<div class="calves" id="calves">
+  <div class="title">
+      <h3 class="calves-title">Calves for Sale</h3>
+      <p class="calves-subtitle">Adorable calves ready for a new home!</p>
+  </div>
+  
+  <div class="calf-card">
+      <img src="fresian calf.jpg" alt="fresian calf" class="calf-image">
+      <h4 class="calf-name">Bessie</h4>
+      <p class="calf-history">Bessie is a playful 6-month-old heifer who loves to frolic in the fields. She's well-socialized and comes from a strong lineage of milk producers.</p>
+      <h5 class="calf-price">$40000</h5>
+      <button class="order-button" onclick="openOrderForm('Bessie', 600)">Order Bessie</button>
+  </div>
+
+  <div class="calf-card">
+      <img src="ashyre calf.jpg" alt="Ashyre calf" class="calf-image">
+      <h4 class="calf-name">Sky</h4>
+      <p class="calf-history">Sky is a charming 4-month-old calf who loves to explore. She's healthy and comes from a family known for their excellent milk quality.</p>
+      <h5 class="calf-price">$33000</h5>
+      <button class="order-button" onclick="openOrderForm('MooMoo', 550)">Order MooMoo</button>
+  </div>
+
+  <div class="calf-card">
+      <img src="jersy calf.jpg" alt="jersy calf" class="calf-image">
+      <h4 class="calf-name">Daisy</h4>
+      <p class="calf-history">Daisy is a gentle 5-month-old heifer with a sweet disposition. She has been raised with care and is ready to become part of a loving family.</p>
+      <h5 class="calf-price">$30000</h5>
+      <button class="order-button" onclick="openOrderForm('Daisy', 650)">Order Daisy</button>
+  </div>
+</div>
+
+  <!-- About Us Section -->
+<div class="about-us" id="about">
+  <div class="about-us-textbox">
+    <h2 class="about-us-title">about us</h2>
+
+    <p class="about-us-text" id="about-paragraph" style="display: none;">
+      Waihura Dairy Farm is a premier dairy farm located in the beautiful countryside of Nyeri. 
+      Our farm is dedicated to providing you with the freshest and highest quality dairy products possible. 
+      We offer a range of products, from milk to cheese, all crafted with care from our healthy, happy cows. 
+      Our farm is situated near the heart of Nyeri town, making it convenient for you to enjoy farm-fresh dairy products 
+      while still being close to local shops and dining. We are committed to delivering the best dairy experience possible 
+      and look forward to welcoming you to Waihura Dairy Dairy Farm.
+    </p>
+
+    <button class="about-us-btn" id="learn-more-btn" onclick="toggleParagraph()">Learn More</button>
+  </div>
+  <div class="about-us-imgbox">
+    <img src="dairy.jpg" alt="Waihura Dairy Farm" class="about-us-img">
+  </div>
+</div>
+<script>
+  function toggleParagraph() {
+    var paragraph = document.getElementById("about-paragraph");
+    var button = document.getElementById("learn-more-btn");
+
+    if (paragraph.style.display === "none") {
+      paragraph.style.display = "block";
+      button.innerText = "Show Less"; // Change button text to "Show Less" when paragraph is visible
+    } else {
+      paragraph.style.display = "none";
+      button.innerText = "Learn More"; // Change button text back to "Learn More" when paragraph is hidden
+    }
+  }
+</script>
+
+    <!-- Contact Us Section -->
+  <section class="contact-us" id="contact-us">
+    <h2>Contact Waihura Dairy Farm</h2>
+    <div class="container">
+      <div class="contact-info">
+        <address>
+          <div class="contact-item">
+            <label for="phone">Phone</label>
+            <p id="phone"><i class="fas fa-phone-alt"></i> <a href="tel:+254721458240">+254721458240</a></p>
+          </div>
+          <div class="contact-item">
+            <label for="email">Email</label>
+            <p id="email"><i class="fas fa-envelope"></i> <a
+                href="mailto:waihura@dairy.com">waihura@dairy.com</a></p>
+          </div>
+        </address>
+
+        <div class="social-links">
+          <div class="social-item">
+            <label for="facebook">Facebook</label>
+            <a id="facebook" href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+          </div>
+          <div class="social-item">
+            <label for="instagram">Instagram</label>
+            <a id="instagram" href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          </div>
+          <div class="social-item">
+            <label for="x">X</label>
+            <a id="x" href="#" target="_blank"><i class="fab fa-twitter"></i> X</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Waihura  Dairy Farm</h3>
+        <p>Your dream of fresh, quality dairy products awaits you at Waihura Dairy Farm. Reach out to us today to discover our farm-fresh offerings.</p>
+        <p>At Waihura Dairy Farm, we pride ourselves on providing the finest dairy products sourced from our happy cows. Experience the rich flavors and quality that come straight from our farm to your table.</p>
+        
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+254718764327">+254718764327</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:waihura@dairy.com">waihura@dairy.com</a></p>
+      </div>
+
+      <div class="footer-links">
+        <h4>quick links</h4>
+        <ul>
+          <li class="social-links-nav"><a class="social-items-nav" href="#home">Home</class="social-items-nav"></li>
+
+          <li class="social-links-nav"><a class="social-items-nav"
+              href="#products">Products</class="social-items-nav"></li>
+          <li class="social-links-nav"><a class="social-items-nav"
+              href="#calves">Calves</class="social-items-nav"></li>
+          <li class="social-links-nav"><a class="social-items-nav" href="#about-us">About Us</a></li>
+          <li class="social-links-nav"><a class="social-items-nav" href="#contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+
+
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://x.com/home" target="_blank"><i class="fab fa-twitter"></i> X</a>
+        </div>
+      </div>
+    </div>
+
+    
+      <p>&copy; Waihura Dairy Farm. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>
